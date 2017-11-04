@@ -200,8 +200,14 @@
                     ajax: {
                         url: this.source + '/setTableData',
                         headers: { 'X-CSRF-TOKEN': Laravel.csrfToken },
+                        type: 'PATCH',
+                        data: {
+                            extraFilters() { return JSON.stringify(self.extraFilters); },
+                            intervalFilters() { return JSON.stringify(self.intervalFilters); },
+                            customParams() { return JSON.stringify(self.customParams); }
+                        }
                     },
-                    table: this.id || '#table-' + this._uid,
+                    table: '#' + (this.id || 'table-' + this._uid),
                     fields: []
                 }
             }
@@ -420,9 +426,11 @@
                         throw 500;
                     }
 
-                    if (response.level) {
+                    if (response.errors) {
                         $('div.DTE_Field_InputControl').addClass('has-error');
-                        return toastr[response.level](response.message);
+                        for (let error in response.errors) {
+                            return toastr.error(response.errors[error]);
+                        }
                     }
 
                     $('div.DTE_Field_InputControl').removeClass('has-error');
@@ -501,6 +509,7 @@
                 }
             },
             clearState() {
+                this.$emit('clear-state');
                 if (localStorage.hasOwnProperty(this.settingsKey)) {
                     localStorage.removeItem(this.settingsKey)
                 }
@@ -555,7 +564,6 @@
 
     div.DTE_Inline div.DTE_Inline_Field div.DTE_Field input,
     div.DTE_Inline div.DTE_Inline_Buttons div.DTE_Field input {
-        width: 100%;
         text-align: center;
     }
 
@@ -651,11 +659,6 @@
 
     div.dataTables_length {
         margin-right: 4px;
-    }
-
-    div.dataTables_length > label > div.bootstrap-select > button.btn.dropdown-toggle.btn-default {
-        box-shadow: none;
-        border: 1px solid #ddd;
     }
 
     div.dt-button-collection {

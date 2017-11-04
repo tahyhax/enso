@@ -46,7 +46,8 @@
 							<i class="fa fa-envelope-o text-orange"
 								v-else>
 							</i>
-							<span :class="{ 'bold' : !notification.read_at }">
+							<span :class="{ 'bold' : !notification.read_at }"
+								v-tooltip="notification.data.body">
 								{{ notification.data.body }}
 							</span>
 						</a>
@@ -134,7 +135,7 @@
 				axios.patch('/core/notifications/markAsRead/' + notification.id).then(response => {
 					this.unreadCount = this.unreadCount ? --this.unreadCount : this.unreadCount;
 					window.location.href = notification.data.link;
-					notification = response.data; // fixme
+					notification.read_at = moment().format('Y-MM-DD H:mm:s');
 				}).catch(error => {
 					this.reportEnsoException(error);
 				});
@@ -183,7 +184,7 @@
 				 	b = event.target.scrollHeight - event.target.clientHeight,
 					c = a / b;
 
-				if (c === 1) {
+				if (c > 0.7) {
 					this.needsUpdate = true;
 					this.getList();
 				}

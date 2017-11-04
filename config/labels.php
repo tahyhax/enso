@@ -39,4 +39,13 @@ return [
     'markAllAsRead'       => 'Mark All Read',
     'clearAll'            => 'Clear All',
     'notAuthorized'       => 'You are not authorized to perform this action',
+    'observations'        => 'Observations',
+    'selectDate'          => 'Select Date',
+    'selectTime'          => 'Select Time',
+    'selectOption'        => 'Select Option',
+    'deselect'            => 'Press enter to remove',
+    'select'              => 'Press enter to select',
+    'selected'            => 'Selected',
+    'noResult'            => 'No elements found',
+    'selectTags'          => 'Select Tags',
 ];

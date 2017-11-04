@@ -5,7 +5,6 @@ window.Laravel = {
 const bus = new Vue();
 Vue.prototype.$bus = bus;
 
-window.initBootstrapSelect = require('./vendor/laravel-enso/modules/initBootstrapSelect');
 require('animate.css');
 
 import VTooltip from 'v-tooltip';
@@ -47,9 +46,14 @@ Vue.directive('focus', {
 Vue.mixin({
     methods: {
         reportEnsoException(error) {
-            if (error.response && error.response.data.message) {
-                toastr.error(error.response.data.message);
+            if (error.response.status === 455) {
+                return toastr.error(error.response.data.message);
             }
+
+            if (error.response.status === 403) {
+                return toastr.error(Store.labels.notAuthorized);
+            }
+
             throw error;
         }
     }
@@ -91,6 +95,7 @@ Vue.component('userWidget', require('./vendor/laravel-enso/components/vueadminlt
 Vue.component('page', require('./vendor/laravel-enso/components/vueadminlte/Page.vue'));
 Vue.component('breadcrumbs', require('./vendor/laravel-enso/components/vueadminlte/Breadcrumbs.vue'));
 Vue.component('tabs', require('./vendor/laravel-enso/components/vueadminlte/Tabs.vue'));
+Vue.component('overlay', require('./vendor/laravel-enso/components/vueadminlte/Overlay.vue'));
 
 Vue.component('modal', require('./vendor/laravel-enso/components/enso/Modal.vue'));
 Vue.component('vueFilter', require('./vendor/laravel-enso/components/enso/VueFilter.vue'));
@@ -104,7 +109,6 @@ Vue.component('chart', require('./vendor/laravel-enso/components/charts/Chart.vu
 Vue.component('dataTable', require('./vendor/laravel-enso/components/datatable/DataTable.vue'));
 
 Vue.component('vueSelect', require('./vendor/laravel-enso/components/select/VueSelect.vue'));
-Vue.component('vueSelectLegacy', require('./vendor/laravel-enso/components/select/VueSelectLegacy.vue'));
 
 Vue.component('roleConfigurator', require('./vendor/laravel-enso/components/rolemanager/RoleConfigurator.vue'));
 Vue.component('checkboxManager', require('./vendor/laravel-enso/components/rolemanager/CheckboxManager.vue'));
@@ -114,5 +118,7 @@ Vue.component('reorderableMenu', require('./vendor/laravel-enso/components/menum
 Vue.component('fileUploader', require('./vendor/laravel-enso/components/filemanager/FileUploader.vue'));
 
 Vue.component('vueForm', require('./vendor/laravel-enso/components/vueforms/VueForm.vue'));
+
+Vue.component('howToVideo', require('./vendor/laravel-enso/components/howToVideos/HowToVideo.vue'));
 
 Vue.component('draggable', require('vuedraggable'));

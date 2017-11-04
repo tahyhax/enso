@@ -5,7 +5,7 @@
 	        <tbody>
 	            <tr>
 	                <td :colspan="options.length + 1">
-	                    {{ title }}
+	                    <b>{{ title }}</b>
 	                </td>
 	            </tr>
 	            <tr>
@@ -53,7 +53,7 @@
   			options: {
   				type: Array,
   				default() {
-  					return {};
+  					return [];
   				}
   			},
   			value: {
