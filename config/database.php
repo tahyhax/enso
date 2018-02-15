@@ -109,26 +109,26 @@ return [
         'client' => 'predis',
 
         'cache' => [
-            'host'     => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
-            'port'     => env('REDIS_PORT', 6379),
-            'database' => env('REDIS_CACHE_DB', null),
+            'host'               => env('REDIS_HOST', '127.0.0.1'),
+            'password'           => env('REDIS_PASSWORD', null),
+            'port'               => env('REDIS_PORT', 6379),
+            'database'           => env('REDIS_CACHE_DB', null),
             'connection_timeout' => -1,
         ],
 
         'queues' => [
-            'host'     => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
-            'port'     => env('REDIS_PORT', 6379),
-            'database' => env('REDIS_QUEUE_DB', null),
+            'host'               => env('REDIS_HOST', '127.0.0.1'),
+            'password'           => env('REDIS_PASSWORD', null),
+            'port'               => env('REDIS_PORT', 6379),
+            'database'           => env('REDIS_QUEUE_DB', null),
             'read_write_timeout' => -1,
         ],
 
         'horizon' => [
-            'host'     => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
-            'port'     => env('REDIS_PORT', 6379),
-            'database' => env('REDIS_HORIZON_DB', null),
+            'host'               => env('REDIS_HOST', '127.0.0.1'),
+            'password'           => env('REDIS_PASSWORD', null),
+            'port'               => env('REDIS_PORT', 6379),
+            'database'           => env('REDIS_HORIZON_DB', null),
             'read_write_timeout' => -1,
         ],
 
