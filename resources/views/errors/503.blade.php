@@ -5,8 +5,7 @@
 @section('content')
 
   <div class="content">
-    <div class="title">Be right back</div>
-    <div class="error">System is under maintenance</div>
+    <div class="title">{{ $exception->getMessage() ?? 'Be right back' }}</div>
   </div>
 
 @endsection
