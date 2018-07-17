@@ -1,6 +1,13 @@
 ## Laravel Enso's Changelog
 
-# 2.8.10
+### 2.8.11
+
+- adds `laravolt/avatar` for creating default avatars
+- vuedatatable: adds `dateFormat` template attribute for individual columns
+- improves the overall flow for the structuremanager CLI
+- fixes / improves tests (adds tests for structuremanager)
+
+### 2.8.10
 
 - adds animated hamburger for the main menu
 - animates the notification dropdown arrow
