@@ -29,8 +29,7 @@ class CourseFinancialsTableController extends Controller
                     course_financials.invoice_link,
                     course_financials.payment_link,                    
                     course_financials.updated_at                              
-            '))
-            ;
+            '));
 
         return $query;
     }

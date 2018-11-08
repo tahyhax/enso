@@ -5,7 +5,6 @@ use Illuminate\Database\Seeder;
 
 class CourseSchedulesSeeder extends Seeder
 {
-
     public function run()
     {
         $schedules = [

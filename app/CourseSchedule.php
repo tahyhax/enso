@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class CourseSchedule extends Model
 {
-
-    protected $fillable = ['name ','type', 'location', 'monday', 'tuesday', 'wednesday',
-        'thursday', 'friday', 'saturday', 'sunday',];
+    protected $fillable = ['name ', 'type', 'location', 'monday', 'tuesday', 'wednesday',
+        'thursday', 'friday', 'saturday', 'sunday', ];
 }

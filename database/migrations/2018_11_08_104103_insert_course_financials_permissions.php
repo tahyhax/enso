@@ -1,13 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
 use LaravelEnso\StructureManager\app\Classes\StructureMigration;
 
 class InsertCourseFinancialsPermissions extends StructureMigration
 {
-
     protected $permissionGroup = [
         'name' => 'account.courseFinancials', 'description' => 'Course Financials Group',
     ];

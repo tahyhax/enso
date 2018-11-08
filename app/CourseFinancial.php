@@ -7,9 +7,8 @@ use Jenssegers\Date\Date;
 
 class CourseFinancial extends Model
 {
-
     protected $fillable = ['name', 'type', 'issuer', 'issue_date', 'due_date', 'amount',
-        'payment_date', 'remaining_amount', 'invoice_link', 'payment_link'];
+        'payment_date', 'remaining_amount', 'invoice_link', 'payment_link', ];
 
     //********** Getters & Setters **********
     public function getIssueDateAttribute($value)

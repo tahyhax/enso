@@ -3,17 +3,15 @@
  * Created with luv for smarthelper.
  * User: mihai
  * Date: 11/8/18
- * Time: 10:47 AM
+ * Time: 10:47 AM.
  */
 
 namespace App\DataTable;
-
 
 use LaravelEnso\DataTable\app\Classes\TableStructure;
 
 class CourseSchedulesTableStructure extends TableStructure
 {
-
     public function __construct()
     {
         $this->data = [

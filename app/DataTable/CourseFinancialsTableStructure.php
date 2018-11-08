@@ -3,24 +3,22 @@
  * Created with luv for smarthelper.
  * User: mihai
  * Date: 11/8/18
- * Time: 10:47 AM
+ * Time: 10:47 AM.
  */
 
 namespace App\DataTable;
-
 
 use LaravelEnso\DataTable\app\Classes\TableStructure;
 
 class CourseFinancialsTableStructure extends TableStructure
 {
-
     public function __construct()
     {
         $this->data = [
 
-            'tableName'     => __('Financial Situation'),
-            'crtNo'         => __('#'),
-            'actionButtons' => __('Actions'),
+            'tableName'           => __('Financial Situation'),
+            'crtNo'               => __('#'),
+            'actionButtons'       => __('Actions'),
             'customActionButtons' => [
                 ['class' => 'btn-danger fa fa-cc-visa', 'event' => 'pay'],
             ],
