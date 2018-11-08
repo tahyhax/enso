@@ -24,6 +24,7 @@
                         <data-table id="index-course-schedules-id"
                                     source="/account/courseSchedules"
                                     ref="courseSchedulesTable"
+                                    :custom-render="customRender"
                         >
                         </data-table>
                     </div>
@@ -32,12 +33,13 @@
                         <box icon="fa fa-bullhorn"
                              title="Anunturi">
 
-                            <div class="invoice" >
+                            <div class="invoice">
                                 <p>In 5.11.2018, Asociata Top a scris</p>
                                 <p class="well">
                                     Dragi cursanti,
                                     <br>
-                                    Va anuntam ca din motive independente de vointa noastra, cursul de matematica de marti este
+                                    Va anuntam ca din motive independente de vointa noastra, cursul de matematica de
+                                    marti este
                                     anulat.
                                     <br>
 
@@ -60,11 +62,28 @@
 
         let vue = new Vue({
             el: '#app',
+            data: {
+                cancelledColor: '#E92525'
+            },
             methods: {
                 customRender(column, data, type, row, meta) {
                     switch (column) {
                         case 'invoice_link':
                             return this.invoice(data);
+                        case 'monday':
+                            return this.hour(data, '#83EA83');
+                        case 'tuesday':
+                            return this.hour(data, '#3DCD3D');
+                        case 'wednesday':
+                            return this.hour(data, '#1DBB1D');
+                        case 'thursday':
+                            return this.hour(data, '#2E9C9C');
+                        case 'friday':
+                            return this.hour(data, '#168C8C');
+                        case 'saturday':
+                            return this.hour(data, '#FF9D4C');
+                        case 'sunday':
+                            return this.hour(data, '#E97E25');
                         default:
                             toastr.warning('render for column ' + column + ' is not defined.');
                             return data;
@@ -79,6 +98,16 @@
                 },
                 handlePay: function (payload) {
                     alert(payload);
+                },
+                hour: function (data, color) {
+
+                    if(!data) { return ''; }
+
+                    if (data === 'anulat') {
+                        color = this.cancelledColor;
+                    }
+
+                    return '<span class="label" style="background-color: ' + color + '">' + data + '</span>';
                 }
             },
         });
