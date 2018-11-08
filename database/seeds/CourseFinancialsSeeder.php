@@ -5,7 +5,6 @@ use Illuminate\Database\Seeder;
 
 class CourseFinancialsSeeder extends Seeder
 {
-
     public function run()
     {
         $courseFinancials = [

@@ -29,8 +29,7 @@ class CourseSchedulesTableController extends Controller
                     course_schedules.saturday,
                     course_schedules.sunday,                    
                     course_schedules.updated_at                         
-            '))
-            ;
+            '));
 
         return $query;
     }

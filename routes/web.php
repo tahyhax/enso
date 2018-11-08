@@ -26,9 +26,7 @@ Route::middleware(['auth', 'core'])
         Route::get('dashboard', 'DashboardController@index')
         ->name('dashboard');
 
-
         Route::group(['prefix' => 'account', 'as' => 'account.'], function () {
-
             Route::group(['prefix' => 'main', 'as' => 'main.'], function () {
                 Route::get('index', 'AccountController@index')
                     ->name('index');
@@ -45,7 +43,5 @@ Route::middleware(['auth', 'core'])
                 Route::get('getTableData', 'CourseSchedulesTableController@getTableData')->name('getTableData');
                 Route::get('exportExcel', 'CourseSchedulesTableController@exportExcel')->name('exportExcel');
             });
-
         });
-
     });
