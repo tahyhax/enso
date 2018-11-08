@@ -25,4 +25,27 @@ Route::middleware(['auth', 'core'])
         ->name('home');
         Route::get('dashboard', 'DashboardController@index')
         ->name('dashboard');
+
+
+        Route::group(['prefix' => 'account', 'as' => 'account.'], function () {
+
+            Route::group(['prefix' => 'main', 'as' => 'main.'], function () {
+                Route::get('index', 'AccountController@index')
+                    ->name('index');
+            });
+
+            Route::group(['prefix' => 'courseFinancials', 'as' => 'courseFinancials.'], function () {
+                Route::get('initTable', 'CourseFinancialsTableController@initTable')->name('initTable');
+                Route::get('getTableData', 'CourseFinancialsTableController@getTableData')->name('getTableData');
+                Route::get('exportExcel', 'CourseFinancialsTableController@exportExcel')->name('exportExcel');
+            });
+
+            Route::group(['prefix' => 'courseSchedules', 'as' => 'courseSchedules.'], function () {
+                Route::get('initTable', 'CourseSchedulesTableController@initTable')->name('initTable');
+                Route::get('getTableData', 'CourseSchedulesTableController@getTableData')->name('getTableData');
+                Route::get('exportExcel', 'CourseSchedulesTableController@exportExcel')->name('exportExcel');
+            });
+
+        });
+
     });
