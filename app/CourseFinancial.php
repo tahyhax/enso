@@ -21,7 +21,6 @@ class CourseFinancial extends Model
         return $value ? Date::parse($value)->format('d-m-Y') : null;
     }
 
-
     public function getPaymentDateAttribute($value)
     {
         return $value ? Date::parse($value)->format('d-m-Y') : null;

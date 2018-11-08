@@ -20,7 +20,7 @@ class CourseSchedulesTableStructure extends TableStructure
             'crtNo'         => __('#'),
             'headerAlign'   => 'center',
             'bodyAlign'     => 'center',
-            'render'        => [3,4,5,6,7,8,9],
+            'render'        => [3, 4, 5, 6, 7, 8, 9],
             'notSearchable' => [],
             'boolean'       => [],
             'appends'       => [],
