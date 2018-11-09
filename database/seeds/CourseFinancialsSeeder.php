@@ -17,8 +17,8 @@ class CourseFinancialsSeeder extends Seeder
                 'amount'           => 140,
                 'payment_date'     => null,
                 'remaining_amount' => 140,
-                'invoice_link'     => 'http://www.smarthelper.ro',
-                'payment_link'     => 'https://www.google.com',
+                'invoice_link'     => 'https://clienti.smarthelper.ro/factura-41-curs-romana.pdf',
+                'payment_link'     => 'https://mpy.ro/sgp03ev',
             ],
             [
                 'name'             => 'Limba engleza',
@@ -29,8 +29,8 @@ class CourseFinancialsSeeder extends Seeder
                 'amount'           => 140,
                 'payment_date'     => '2018-11-05',
                 'remaining_amount' => 0,
-                'invoice_link'     => 'http://www.smarthelper.ro',
-                'payment_link'     => 'https://www.google.com',
+                'invoice_link'     => 'https://clienti.smarthelper.ro/factura-45-curs-engleza.pdf',
+                'payment_link'     => '#',
             ],
             [
                 'name'             => 'Matematica',
@@ -41,8 +41,8 @@ class CourseFinancialsSeeder extends Seeder
                 'amount'           => 140,
                 'payment_date'     => null,
                 'remaining_amount' => 20,
-                'invoice_link'     => 'http://www.smarthelper.ro',
-                'payment_link'     => 'https://www.google.com',
+                'invoice_link'     => 'https://clienti.smarthelper.ro/factura-51-curs-matematica.pdf',
+                'payment_link'     => 'https://mpy.ro/sgp07ev',
             ],
             [
                 'name'             => 'Istorie',
@@ -51,10 +51,10 @@ class CourseFinancialsSeeder extends Seeder
                 'issue_date'       => '2018-11-05',
                 'due_date'         => '2018-11-14',
                 'amount'           => 140,
-                'payment_date'     => null,
+                'payment_date'     => '2018-11-06',
                 'remaining_amount' => 0,
-                'invoice_link'     => 'http://www.smarthelper.ro',
-                'payment_link'     => 'https://www.google.com',
+                'invoice_link'     => 'https://clienti.smarthelper.ro/factura-57-curs-istorie.pdf',
+                'payment_link'     => '#',
             ],
         ];
 
