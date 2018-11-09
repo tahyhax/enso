@@ -97,18 +97,36 @@
                         '</span>';
                 },
                 handlePay: function (payload) {
-                    alert(payload);
+
+                    const link = this.getLink(payload);
+
+                    if (link !== '#') {
+                        window.open(link, '_blank');
+                    }
                 },
                 hour: function (data, color) {
 
-                    if(!data) { return ''; }
+                    if (!data) {
+                        return '';
+                    }
 
                     if (data === 'anulat') {
                         color = this.cancelledColor;
                     }
 
                     return '<span class="label" style="background-color: ' + color + '">' + data + '</span>';
-                }
+                },
+                getLink: function (payload) {
+
+                    const row = Array.from(
+                        this.$refs.courseFinancialsTable.dtHandle.rows().data()
+                        )
+                        .find(function (elem) {
+                            return elem.DT_RowId == payload;
+                        });
+
+                    return row.payment_link;
+                },
             },
         });
 
