@@ -1,6 +1,5 @@
 <?php
 
-use App\CourseFinancial;
 use App\IndividualCourseFinancial;
 use Illuminate\Database\Seeder;
 

@@ -10,7 +10,6 @@ use LaravelEnso\DataTable\app\Traits\DataTable;
 
 class CourseFinancialsTableController extends Controller
 {
-
     use DataTable;
 
     protected $tableStructureClass = CourseFinancialsTableStructure::class;
