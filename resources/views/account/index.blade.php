@@ -20,33 +20,14 @@
             <div class="row">
 
                 <div class="col-xs-12">
-                    <div class="col-xs-12 col-sm-12 col-md-8">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
                         <data-table id="index-course-schedules-id"
                                     source="/account/courseSchedules"
                                     ref="courseSchedulesTable"
                                     :custom-render="customRender"
                         >
                         </data-table>
-                    </div>
 
-                    <div class="col-md-4" style="height: 100%;">
-                        <box icon="fa fa-bullhorn"
-                             title="Anunturi">
-
-                            <div class="invoice">
-                                <p>In 5.11.2018, Asociata Top a scris</p>
-                                <p class="well">
-                                    Dragi cursanti,
-                                    <br>
-                                    Va anuntam ca din motive independente de vointa noastra, cursul de matematica de
-                                    marti este
-                                    anulat.
-                                    <br>
-
-                                    Centrul de meditatii TOP
-                                </p>
-                            </div>
-                        </box>
                     </div>
                 </div>
             </div>
