@@ -32,6 +32,17 @@ Route::middleware(['auth', 'core'])
                     ->name('index');
             });
 
+            Route::group(['namespace' => 'Individual', 'prefix' => 'individual', 'as' => 'individual.'], function () {
+                Route::get('index', 'AccountController@index')
+                    ->name('index');
+
+                Route::group(['prefix' => 'courseFinancials', 'as' => 'courseFinancials.'], function () {
+                    Route::get('initTable', 'CourseFinancialsTableController@initTable')->name('initTable');
+                    Route::get('getTableData', 'CourseFinancialsTableController@getTableData')->name('getTableData');
+                    Route::get('exportExcel', 'CourseFinancialsTableController@exportExcel')->name('exportExcel');
+                });
+            });
+
             Route::group(['prefix' => 'courseFinancials', 'as' => 'courseFinancials.'], function () {
                 Route::get('initTable', 'CourseFinancialsTableController@initTable')->name('initTable');
                 Route::get('getTableData', 'CourseFinancialsTableController@getTableData')->name('getTableData');
