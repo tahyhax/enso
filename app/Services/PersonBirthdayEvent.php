@@ -1,18 +1,15 @@
 <?php
 
-
 namespace App\Services;
 
-
 use Carbon\Carbon;
+use LaravelEnso\People\app\Models\Person;
+use LaravelEnso\Calendar\app\Enums\Frequencies;
 use LaravelEnso\Calendar\app\Contracts\Calendar;
 use LaravelEnso\Calendar\app\Contracts\ProvidesEvent;
-use LaravelEnso\Calendar\app\Enums\Frequencies;
-use LaravelEnso\People\app\Models\Person;
 
 class PersonBirthdayEvent implements ProvidesEvent
 {
-
     private $person;
     private $year;
 
@@ -29,7 +26,7 @@ class PersonBirthdayEvent implements ProvidesEvent
 
     public function title(): string
     {
-        return __(':name `s birthday',['name' => $this->person->name]);
+        return __(':name `s birthday', ['name' => $this->person->name]);
     }
 
     public function body(): ?string
@@ -41,7 +38,7 @@ class PersonBirthdayEvent implements ProvidesEvent
     {
         return $this->person->birthday
             ->setYear($this->year)
-            ->setTime(11,00,00);
+            ->setTime(11, 00, 00);
     }
 
     public function end(): Carbon

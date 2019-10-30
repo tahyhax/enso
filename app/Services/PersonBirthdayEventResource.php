@@ -1,12 +1,10 @@
 <?php
 
-
 namespace App\Services;
 
-
+use LaravelEnso\Calendar\app\Enums\Frequencies;
 use Illuminate\Http\Resources\Json\JsonResource;
 use LaravelEnso\Calendar\app\Contracts\RoutableEvent;
-use LaravelEnso\Calendar\app\Enums\Frequencies;
 use LaravelEnso\Calendar\app\Http\Resources\Calendar;
 
 class PersonBirthdayEventResource extends JsonResource
@@ -17,7 +15,7 @@ class PersonBirthdayEventResource extends JsonResource
 
         return [
             'id' => $this->getKey(),
-            'title' => $this->name . 'BDay',
+            'title' => $this->name.'BDay',
             'body' => 'Happy BDay',
             'start' => $this->birthday->format('Y-m-d H:i'),
             'end' => $this->birthday->format('Y-m-d H:i'),

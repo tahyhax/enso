@@ -1,18 +1,15 @@
 <?php
 
-
 namespace App\Services;
-
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use LaravelEnso\People\app\Models\Person;
 use LaravelEnso\Calendar\app\Contracts\Calendar;
 use LaravelEnso\Calendar\app\Contracts\CustomCalendar;
-use LaravelEnso\People\app\Models\Person;
 
 class DemoCalendar implements Calendar, CustomCalendar
 {
-
     public function getKey()
     {
         return 'my_id_1';
@@ -41,8 +38,8 @@ class DemoCalendar implements Calendar, CustomCalendar
     public function events(Carbon $startDate, Carbon $endDate): Collection
     {
         return Person::query()
-            ->whereRaw("DATE_FORMAT(birthday, '%m-%d') >= ? ",[$startDate->format('m-d')])
-            ->whereRaw("DATE_FORMAT(birthday, '%m-%d') <= ? ",[$endDate->format('m-d')])
+            ->whereRaw("DATE_FORMAT(birthday, '%m-%d') >= ? ", [$startDate->format('m-d')])
+            ->whereRaw("DATE_FORMAT(birthday, '%m-%d') <= ? ", [$endDate->format('m-d')])
             ->get()
             ->map(function ($person) use ($startDate) {
                 return new PersonBirthdayEvent($person, $startDate->year);
