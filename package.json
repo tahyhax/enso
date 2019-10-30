@@ -42,6 +42,7 @@
     "dependencies": {
         "@enso-ui/accessories": "2.1.x",
         "@enso-ui/bulma": "2.1.x",
+        "@enso-ui/calendar": "^1.1.0",
         "@enso-ui/directives": "1.0.x",
         "@enso-ui/mixins": "1.0.x",
         "@enso-ui/tables": "1.2.x",
