@@ -2,14 +2,14 @@
 
 namespace App\Providers;
 
-use App\Services\DemoCalendar;
 use LaravelEnso\Calendar\app\Facades\Calendars;
+use LaravelEnso\Calendar\app\Services\Calendars\BirthdayCalendar;
 use LaravelEnso\Calendar\CalendarServiceProvider as ServiceProvider;
 
 class CalendarServiceProvider extends ServiceProvider
 {
     protected $register = [
-        DemoCalendar::class,
+        BirthdayCalendar::class,
     ];
 
     public function boot()
