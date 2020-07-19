@@ -2,29 +2,12 @@
 
 return [
     'onDelete' => 'cascade',
-    'streetTypes' => [
-        'Street' => 'Street',
-        'Avenue' => 'Avenue',
-        'Boulevard' => 'Boulevard',
-        'Parade' => 'Parade',
-        'Road' => 'Road',
-        'Lane' => 'Lane',
-        'Route' => 'Route',
-        'Row' => 'Row',
-        'Vista' => 'Vista',
-        'Bend' => 'Bend',
-        'Square' => 'Square',
+    'loggableMorph' => [
+        'addressable' => [],
     ],
-    'buildingTypes' => [
-        'Offices' => 'Offices',
-        'Residential' => 'Residential',
-        'Commercial' => 'Commercial',
-        'Industrial' => 'Industrial',
-    ],
-    'label' => [
-        'separator' => ' - ',
-        'attributes' => [
-            'locality', 'street', 'number',
-        ],
+    'defaultCountryId' => 184,
+    'googleMaps' => [
+        'key' => env('GOOGLE_MAPS_KEY'),
+        'url' => 'https://maps.googleapis.com/maps/api/geocode/json',
     ],
 ];

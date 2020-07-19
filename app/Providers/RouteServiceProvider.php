@@ -7,14 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
+    public const HOME = '/';
+
     protected $namespace = 'App\Http\Controllers';
-
-    public function boot()
-    {
-        //
-
-        parent::boot();
-    }
 
     public function map()
     {
@@ -33,7 +28,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-            ->middleware('web')
+            ->middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
     }

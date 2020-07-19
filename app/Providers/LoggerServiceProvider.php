@@ -3,12 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\App;
-use LaravelEnso\ActivityLog\app\Enums\Events;
-use LaravelEnso\ActivityLog\app\Facades\Logger;
+use LaravelEnso\ActivityLog\Enums\Events;
+use LaravelEnso\ActivityLog\Facades\Logger;
 use LaravelEnso\ActivityLog\LoggerServiceProvider as ServiceProvider;
-use LaravelEnso\Core\app\Models\User;
-use LaravelEnso\Roles\app\Models\Role;
-use LaravelEnso\Teams\app\Models\Team;
+use LaravelEnso\Core\Models\User;
+use LaravelEnso\Roles\Models\Role;
+use LaravelEnso\Teams\Models\Team;
 
 class LoggerServiceProvider extends ServiceProvider
 {
@@ -29,7 +29,7 @@ class LoggerServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        if (!App::environment('testing')) {
+        if (! App::runningUnitTests()) {
             Logger::observe();
         }
     }

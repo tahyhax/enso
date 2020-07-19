@@ -1,11 +1,9 @@
 <?php
 
-use App\Classes\LocalState;
-
 return [
-    'version' => '3.6.1',
-    'showQuote' => true,
-    'stateBuilder' => LocalState::class,
+    'version' => '4.0.1',
+    'ownerCompanyId' => (int) env('OWNER_COMPANY_ID', 1),
+    'showQuote' => (bool) env('SHOW_QUOTE', true),
     'defaultRole' => 'admin',
     'dateFormat' => 'd-m-Y',
     'dateTimeFormat' => 'd-m-Y H:i:s',
@@ -13,7 +11,7 @@ return [
     'googleplus' => 'https://plus.google.com',
     'twitter' => 'https://twitter.com',
     'ravenKey' => env('RAVEN_DSN', null),
-    'cacheLifetime' => env('CACHE_LIFETIME', 60),
+    'cacheLifetime' => (int) env('CACHE_LIFETIME', 60),
     'ensoApiToken' => env('ENSO_API_TOKEN', null),
-    'extendedDocumentTitle' => false,
+    'extendedDocumentTitle' => (bool) env('EXTENDED_DOCUMENT_TITLE', false),
 ];

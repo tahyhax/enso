@@ -1,5 +1,8 @@
 <?php
 
+use LaravelEnso\Filters\Enums\ComparisonOperators;
+use LaravelEnso\Filters\Enums\SearchModes;
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -163,7 +166,7 @@ return [
      */
 
     'style' => [
-        'default' => ['hover', 'striped', 'center'],
+        'default' => ['hover', 'center'],
         'mapping' => [
             'left' => 'has-text-left',
             'center' => 'has-text-centered',
@@ -191,8 +194,9 @@ return [
     | Export Settings
     |--------------------------------------------------------------------------
     | Path where the temporary files are stored within storage/app folder; timeout
-    | limit for jobs; notification options; Note: email notification
-    | will be used in non Enso environments.
+    | limit for jobs; entry limit for each sheet; push notification channels.
+    | Note: while using Enso the users will receive a download link by email,
+    | while in non Enso environments the whole export file will be emailed.
      */
 
     'export' => [
@@ -216,13 +220,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Date format
+    | Date & Datetime format
     |--------------------------------------------------------------------------
     | Global date format for date columns. Will use Carbon to parse the columns
     | marked as date to the desired format.
      */
 
     'dateFormat' => 'd-m-Y',
+    'dateTimeFormat' => 'd-m-Y H:i:s',
 
     /*
     |--------------------------------------------------------------------------
@@ -281,33 +286,36 @@ return [
     |--------------------------------------------------------------------------
     | SQL comparison operator
     |--------------------------------------------------------------------------
-    | The comparison operator will be the default used for every table. You
-    | will still have the option of customizing the operator for certain
-    | tables by using the same attribute in the table's json template.
-    | Possible values for comparison operator: LIKE, ILIKE
+    | The comparison operator will be the default used for every table. Can be
+    | customized for each table. Possible values:
+    | ComparisonOperators::Like, ComparisonOperators::ILike
     */
 
-    'comparisonOperator' => 'LIKE',
+    'comparisonOperator' => ComparisonOperators::Like,
 
     /*
     |--------------------------------------------------------------------------
     | Search Modes
     |--------------------------------------------------------------------------
-    | Allowed search modes. Array with one ore more possible values
-    | Possible values for search mode: 'full', 'startsWith', 'endsWith'
-    |
+    | Global allowed search modes that can be customized for each table.
+    | Possible values:
+    | SearchModes::Full', SearchModes::StartsWith, SearchModes::EndsWith
     */
 
-    'searchModes' => ['full', 'startsWith', 'endsWith'],
+    'searchModes' => [
+        SearchModes::Full, SearchModes::StartsWith, SearchModes::EndsWith,
+        SearchModes::ExactMatch, SearchModes::DoesntContain,
+        // SearchModes::Algolia,
+    ],
 
     /*
     |--------------------------------------------------------------------------
     | Search Mode
     |--------------------------------------------------------------------------
-    | Controls the global way in which wildcards are used in the query.
-    | Can be customized for each table.
-    | Possible values for search mode: 'full', 'startsWith', 'endsWith'
+    | Controls the default way in which wildcards are used in the query.
+    | Can be customized for each table. Possible values:
+    | SearchModes::Full', SearchModes::StartsWith, SearchModes::EndsWith
     */
 
-    'searchMode' => 'startsWith',
+    'searchMode' => SearchModes::Full,
 ];

@@ -1,17 +1,25 @@
 <?php
 
 use Faker\Generator as Faker;
-use LaravelEnso\Addresses\app\Models\Address;
-use LaravelEnso\Addresses\app\Models\Country;
+use LaravelEnso\Addresses\Models\Address;
+use LaravelEnso\Countries\Models\Country;
 
 $factory->define(Address::class, function (Faker $faker) {
+    $country = Country::inRandomOrder()->first();
+
     return [
-        'addressable_id' => $faker->randomKey,
+        'addressable_id' => $faker->randomNumber(5),
         'addressable_type' => $faker->word,
-        'country_id' => Country::inRandomOrder()->first()->id,
-        'apartment' => $faker->word,
-        'street' => $faker->streetAddress,
+        'country_id' => $country->id,
+        'region_id' => null,
+        'locality_id' => null,
         'city' => $faker->city,
+        'street' => $faker->streetAddress,
+        'additional' => null,
+        'postcode' => $faker->postcode,
+        'lat' => $faker->latitude,
+        'long' => $faker->longitude,
+        'notes' => $faker->realText(),
         'is_default' => true,
     ];
 });

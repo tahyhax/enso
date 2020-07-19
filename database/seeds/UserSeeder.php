@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use LaravelEnso\Core\app\Models\User;
-use LaravelEnso\Core\app\Models\UserGroup;
-use LaravelEnso\People\app\Enums\Titles;
-use LaravelEnso\People\app\Models\Person;
-use LaravelEnso\Roles\app\Models\Role;
+use LaravelEnso\Core\Models\User;
+use LaravelEnso\Core\Models\UserGroup;
+use LaravelEnso\People\Enums\Titles;
+use LaravelEnso\People\Models\Person;
+use LaravelEnso\Roles\Models\Role;
 
 class UserSeeder extends Seeder
 {
